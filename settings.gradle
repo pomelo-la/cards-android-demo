@@ -14,6 +14,10 @@ dependencyResolutionManagement {
         maven {
             name = "Pomelo GitHubPackages Releases"
             url = uri("https://maven.pkg.github.com/pomelo-la/android-public")
+            credentials {
+                username = System.getenv("username")
+                password = System.getenv("access_token")
+            }
         }
     }
 }
