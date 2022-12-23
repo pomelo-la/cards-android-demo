@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            name = "Pomelo GitHubPackages Releases"
+            url = uri("https://maven.pkg.github.com/pomelo-la/android-public")
+        }
+    }
+}
+
+
+rootProject.name = "pomelo-cards-demo"
+include ':app'

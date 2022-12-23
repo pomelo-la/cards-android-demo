@@ -1,0 +1,9 @@
+<resources>
+    <string name="card_expiration_title">Vence</string>
+    <string name="error">:( Hubo algún problema</string>
+    <string name="success_pin">:) Cambio de PIN exitoso</string>
+    <string name="success_activate">Activación exitosa</string>
+    <string name="change_ping">CAMBIO DE PIN</string>
+    <string name="activate">ACTIVAR</string>
+    <string name="app_name">Pomelo Cards Widgets</string>
+</resources>
