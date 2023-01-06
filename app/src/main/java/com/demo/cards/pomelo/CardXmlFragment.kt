@@ -63,6 +63,7 @@ class CardXmlFragment : Fragment() {
                 }
             )
         }
+
         binding.activateCard.init { cardsResult, message ->
             when (cardsResult) {
                 CardsResult.NETWORK_ERROR -> Log.e(cardsResult.name, message ?: "")
@@ -70,6 +71,7 @@ class CardXmlFragment : Fragment() {
                 CardsResult.SUCCESS -> {}
             }
         }
+
         binding.changePin.init(
             cardId = BuildConfig.CARD_ID,
             onResultListener = { cardsResult, message ->
