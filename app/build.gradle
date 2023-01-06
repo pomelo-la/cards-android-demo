@@ -1,0 +1,71 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.demo.cards.pomelo"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        demo {
+            dimension = "default"
+            buildConfigField("String", "CARD_ID", '"CARD_ID"')
+            buildConfigField("String", "EMAIL", '"EMAIL"')
+            buildConfigField("String", "API_BASE_URL", '"API_BASE_URL"')
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.3.2'
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    lint {
+        abortOnError true
+        htmlReport true
+        ignoreWarnings false
+        lintConfig file("$rootDir/sca/lint.xml")
+        warning 'InvalidPackage'
+        warningsAsErrors false
+    }
+
+    namespace 'com.demo.cards.pomelo'
+}
+
+dependencies {
+    implementation 'com.pomelo:cards:0.0.6-SNAPSHOT'
+}
