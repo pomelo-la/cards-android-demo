@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.pomelo.cards.ui.cardview.PomeloCardView
+        <com.pomelo.cards.widgets.ui.card.image.PomeloCardView
             android:id="@+id/pomelo_card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
             app:layout_constraintTop_toTopOf="@id/show_information"
             tools:ignore="HardcodedText" />
 
-        <com.pomelo.cards.ui.activate.PomeloActivateCardView
+        <com.pomelo.cards.widgets.ui.activatecard.PomeloActivateCardView
             android:id="@+id/activateCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/show_information" />
 
-        <com.pomelo.cards.ui.pin.change.PomeloChangePinView
+        <com.pomelo.cards.widgets.ui.changepin.PomeloChangePinView
             android:id="@+id/changePin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

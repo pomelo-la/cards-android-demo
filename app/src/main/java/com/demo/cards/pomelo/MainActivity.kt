@@ -28,6 +28,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.cardInCompose.performClick()
+        //binding.cardInCompose.performClick()
     }
 }

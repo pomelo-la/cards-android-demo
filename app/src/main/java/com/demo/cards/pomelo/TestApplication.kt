@@ -4,8 +4,8 @@ import android.app.Application
 import com.demo.cards.pomelo.data.entities.UserTokenBody
 import com.demo.cards.pomelo.data.repositories.UserTokenRepository
 import com.demo.cards.pomelo.di.MainModule
-import com.pomelo.cards.Configuration
-import com.pomelo.cards.PomeloCards
+import com.pomelo.cards.widgets.Configuration
+import com.pomelo.cards.widgets.PomeloCards
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
