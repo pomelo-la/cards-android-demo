@@ -27,9 +27,9 @@ android {
     productFlavors {
         demo {
             dimension = "default"
-            buildConfigField("String", "CARD_ID", '"crd-2LQZSZYtzT2QZjcKpXTKPaT0Wh0"')
-            buildConfigField("String", "EMAIL", '"juan.perez@pomelo.la"')
-            buildConfigField("String", "API_BASE_URL", '"http://cards.stagecde.pomelo.la"')
+            buildConfigField("String", "CARD_ID", '"CARD_ID"')
+            buildConfigField("String", "EMAIL", '"EMAIL"')
+            buildConfigField("String", "API_BASE_URL", '"API_BASE_URL"')
         }
     }
 
