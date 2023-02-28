@@ -1,6 +1,5 @@
 package com.demo.cards.pomelo
 
-import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,6 +22,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.google.android.material.composethemeadapter.MdcTheme
@@ -126,20 +126,18 @@ fun CardComposeScreen() {
                         }
                     )
                 }
-                /*PomeloCardBottomSheet.showSensitiveData(
-                    cardId = BuildConfig.CARD_ID,
-                    titleCard = stringResource(id = R.string.card_name),
-                    showSensitiveData = showCardBottomSheet,
-                    onDismiss = { showCardBottomSheet = false },
-                    scaffoldState = scaffoldState,
-                    onResultListener = { cardsResult, message ->
-                        when (cardsResult) {
-                            CardsResult.NETWORK_ERROR -> Log.e(cardsResult.name, message ?: "")
-                            CardsResult.BIOMETRIC_ERROR -> {}
-                            CardsResult.SUCCESS -> Log.d("cardsTest", "Success compose bottom")
+                PomeloCardBottomSheet.showSensitiveData(LocalContext.current,
+                    BuildConfig.CARD_ID,
+                    stringResource(id = R.string.card_name)
+                ) { result, _ ->
+                    when (result) {
+                        CardsResult.NETWORK_ERROR -> {}
+                        CardsResult.BIOMETRIC_ERROR -> {}
+                        CardsResult.SUCCESS -> {
+
                         }
                     }
-                )*/
+                }
             }
         }
     }

@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.fragment.app.Fragment
 import com.demo.cards.pomelo.databinding.FragmentCardXmlBinding
 import com.pomelo.cards.widgets.CardsResult
@@ -47,21 +49,19 @@ class CardXmlFragment : Fragment() {
             )
         }
 
-        val cardPomeloBottomSheet = PomeloCardBottomSheet()
         binding.showBottomSheet.setOnClickListener {
-/*            cardPomeloBottomSheet.showSensitiveData(
-                activity as AppCompatActivity,
-                tag = "PomeloCardBottomSheet",
-                cardId = BuildConfig.CARD_ID,
-                titleCard = "Tarjeta Física",
-                onResultListener = { cardsResult, _ ->
-                    when (cardsResult) {
-                        CardsResult.NETWORK_ERROR -> {}
-                        CardsResult.BIOMETRIC_ERROR -> {}
-                        CardsResult.SUCCESS -> {}
+            PomeloCardBottomSheet.showSensitiveData(requireContext(),
+                BuildConfig.CARD_ID,
+                getString(R.string.card_name)
+            ) { result, _ ->
+                when (result) {
+                    CardsResult.NETWORK_ERROR -> {}
+                    CardsResult.BIOMETRIC_ERROR -> {}
+                    CardsResult.SUCCESS -> {
+
                     }
                 }
-            )*/
+            }
         }
 
         binding.activateCard.init { cardsResult, message ->
