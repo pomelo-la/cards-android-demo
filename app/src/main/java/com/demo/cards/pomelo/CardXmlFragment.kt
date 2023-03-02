@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.demo.cards.pomelo.databinding.FragmentCardXmlBinding
-import com.pomelo.cards.CardsResult
-import com.pomelo.cards.ui.cardview.PomeloCardBottomSheet
+import com.pomelo.cards.widgets.CardsResult
+import com.pomelo.cards.widgets.ui.card.bottomsheet.PomeloCardBottomSheet
 
 class CardXmlFragment : Fragment() {
 
@@ -47,11 +47,9 @@ class CardXmlFragment : Fragment() {
             )
         }
 
-        val cardPomeloBottomSheet = PomeloCardBottomSheet()
         binding.showBottomSheet.setOnClickListener {
-            cardPomeloBottomSheet.showSensitiveData(
+            PomeloCardBottomSheet.showSensitiveData(
                 activity as AppCompatActivity,
-                tag = "PomeloCardBottomSheet",
                 cardId = BuildConfig.CARD_ID,
                 titleCard = "Tarjeta Física",
                 onResultListener = { cardsResult, _ ->

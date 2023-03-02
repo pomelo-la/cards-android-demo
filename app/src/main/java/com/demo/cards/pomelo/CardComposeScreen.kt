@@ -1,6 +1,5 @@
 package com.demo.cards.pomelo
 
-import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,14 +22,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.google.android.material.composethemeadapter.MdcTheme
-import com.pomelo.cards.CardsResult
-import com.pomelo.cards.ui.activate.PomeloActivateCardView
-import com.pomelo.cards.ui.cardview.composables.PomeloCardBottomSheet
-import com.pomelo.cards.ui.cardview.composables.PomeloCardView
-import com.pomelo.cards.ui.pin.change.PomeloChangePinComposable
+import com.pomelo.cards.widgets.CardsResult
+import com.pomelo.cards.widgets.ui.activatecard.PomeloActivateCardView
+import com.pomelo.cards.widgets.ui.card.bottomsheet.PomeloCardBottomSheet
+import com.pomelo.cards.widgets.ui.card.image.PomeloCardView
+import com.pomelo.cards.widgets.ui.changepin.PomeloChangePinComposable
 
 @Suppress("LongMethod", "ComplexMethod")
 @Composable
@@ -67,7 +67,8 @@ fun CardComposeScreen() {
                                 CardsResult.BIOMETRIC_ERROR -> {}
                                 CardsResult.SUCCESS -> {}
                             }
-                        }
+                        },
+                        onHideData = {}
                     )
 
                     Row(modifier = Modifier.padding(top = 24.dp)) {
@@ -125,18 +126,15 @@ fun CardComposeScreen() {
                         }
                     )
                 }
-
-                PomeloCardBottomSheet(
+                PomeloCardBottomSheet.showSensitiveData(
+                    LocalContext.current,
                     cardId = BuildConfig.CARD_ID,
-                    titleCard = stringResource(id = R.string.card_name),
-                    showSensitiveData = showCardBottomSheet,
-                    onDismiss = { showCardBottomSheet = false },
-                    scaffoldState = scaffoldState,
-                    onResultListener = { cardsResult, message ->
+                    titleCard = "Tarjeta Física",
+                    onResultListener = { cardsResult, _ ->
                         when (cardsResult) {
-                            CardsResult.NETWORK_ERROR -> Log.e(cardsResult.name, message ?: "")
+                            CardsResult.NETWORK_ERROR -> {}
                             CardsResult.BIOMETRIC_ERROR -> {}
-                            CardsResult.SUCCESS -> Log.d("cardsTest", "Success compose bottom")
+                            CardsResult.SUCCESS -> {}
                         }
                     }
                 )
