@@ -47,11 +47,9 @@ class CardXmlFragment : Fragment() {
             )
         }
 
-        val cardPomeloBottomSheet = PomeloCardBottomSheet()
         binding.showBottomSheet.setOnClickListener {
-/*            cardPomeloBottomSheet.showSensitiveData(
+            PomeloCardBottomSheet.showSensitiveData(
                 activity as AppCompatActivity,
-                tag = "PomeloCardBottomSheet",
                 cardId = BuildConfig.CARD_ID,
                 titleCard = "Tarjeta Física",
                 onResultListener = { cardsResult, _ ->
@@ -61,7 +59,7 @@ class CardXmlFragment : Fragment() {
                         CardsResult.SUCCESS -> {}
                     }
                 }
-            )*/
+            )
         }
 
         binding.activateCard.init { cardsResult, message ->
